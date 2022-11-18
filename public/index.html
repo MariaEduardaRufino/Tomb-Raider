@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://kit.fontawesome.com/1b2ee4f0fc.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div>
+            <a href="index.html"><img src="./assets/img/logo tr menu.png" alt=""></a>
+        </div>
+
+        <div class="menu">
+            <a href="">Sobre o jogo <div class="bar"></div>
+            </a>
+            <a href="">Galeria <div class="bar"></div></a>
+            <a href="">Lara Croft <div class="bar"></div></a>
+            <a href="cadastro.html"><i class="fa-sharp fa-solid fa-right-to-bracket" id="exit-icon"></i></a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <video class="background_video" muted autoplay>
+            <source src="./assets/video/videozinho.mp4">
+        </video>
+    </div>
+
+    <div class="logo">
+        <img src="./assets/img/tomb raider logo white.png" alt="">
+    </div>
+    
+   <div class="container">
+    <button class="arrow-left control" aria-label="previous image">←</button>
+
+    <button class="arrow-right control" aria-label="next image">→</button>
+
+
+    <div class="gallery-wrapper">
+        <div class="gallery">
+            <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-14.jpg" alt="" class="item">
+            <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-15.jpg" alt="" class="item current-item">
+            <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-16.jpg" alt="" class="item">
+            <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-3.jpg" alt="" class="item">
+        </div>
+    </div>
+   </div>
+
+
+   <div class="lancamento">
+    <h1>Próximo possível lançamento da franquia</h1>
+    <div class="containerTimer">
+      <p id="demo"></p>
+      <script>
+        //definindo a data da contagem
+        var countDownDate = new Date("May 5, 2023 15:37:25").getTime();
+
+        // atualizar contagem para diminuir a cada 1 segundo
+        var x = setInterval(function () {
+
+          // utilizar a data de hoje
+          var now = new Date().getTime();
+
+          // achar distância entre o agora e a data selecionada acima
+          var distance = countDownDate - now;
+
+          // calculo de dias, horas, minutos e segundos
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // mostrar o resultado utilizando
+          document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+          // Se a conta terminou exibir
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+      </script>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
+
+<script>
+    ScrollReveal().reveal('.logo', {
+        duration: 3000,
+        distance: '200px'
+    });
+</script>
+<script>
+    const controls = document.querySelectorAll('.control');
+
+let currentItem = 0;
+
+const items = document.querySelectorAll('.item');
+
+const maxItems = items.length;
+
+controls.forEach(control => {
+    control.addEventListener('click', () => {
+        const isLeft = control.classList.contains("arrow-left");
+
+        if(isLeft){
+            currentItem -= 1;
+        }else{
+            currentItem += 1;
+        }
+
+        if(currentItem >= maxItems){
+            currentItem = 0
+        }
+
+        if(currentItem<0){
+            currentItem = maxItems - 1;
+        }
+
+        items.forEach(item => item.classList.remove('current-item'));
+
+        items[currentItem].scrollIntoView({
+            inline: "center",
+            behavior: "smooth",
+            block: 'nearest'
+        });
+
+        items[currentItem].classList.add("current-item");
+    });
+})
+
+</script>
+<script>
+
+</script>
