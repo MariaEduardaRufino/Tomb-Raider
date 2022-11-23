@@ -3,70 +3,183 @@
 /* inicio geral */
 
 * {
-    font-family: poppins;
+  font-family: poppins;
 }
 
 
-.body {
-    overflow-x: hidden;
-    margin: 0;
+body {
+  overflow-x: hidden;
+  margin: 0;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 9000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin-bottom: 20%;
+  background-image: linear-gradient(rgb(21 21 21 / 60% ), rgba(0, 0, 0, 0));
+}
+
+.navbar img {
+  width: 90px;
+  margin-left: 90px;
+
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.menu a:hover .bar {
+  width: 100%;
+
+}
+
+.menu a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.menu .bar {
+  width: 0%;
+  background-color: white;
+  height: 2px;
+  border-radius: 500px;
+  transition: 0.2s ease;
+}
+
+.menu #exit-icon {
+  font-size: 20px;
+  position: relative;
+  bottom: 0;
+  transition: 0.2s ease;
+  margin-bottom: 10px;
+}
+
+#exit-icon:hover {
+  bottom: 5px;
+}
+
+.logo {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-top: 450px;
+}
+
+.logo img {
+  display: flex;
+  width: 900px;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  width: 200%;
+}
+
+.input{
+padding: 3px;
+}
 
 .cadastro {
-    width: 50%;
-    display: flex;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(218, 216, 216);
-  }
-  
-  .dados {
-    margin-top: 30px;
-  }
-  
-  .dados h1 {
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bolder;
-  }
-  
-  .dados p {
-    color: black;
-    margin-top: 20px;
-    font-weight: bolder;
-  }
-  
-  .dados input {
-    border-radius: 5px;
-    width: 250px;
-    height: 20px;
-    border-style: none;
-  }
-  
-  .dados button {
-    display: flex;
-    border-style: none;
-    margin-top: 30px;
-    margin-left: 100px;
-    cursor: pointer;
-    background-color: transparent;
-    margin-bottom: 20px;
-  }
-  .dados button img {
-    width: 40px;
-    background-color: transparent;
-  }
-  .container img{
-overflow-x: auto;
-    width: 1000px;
-  }
+  width: 50%;
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3%;
+  background-color: rgba(218, 216, 216, 0.555);;
+}
+
+.dados {
+  margin-top: 10px;
+}
+
+.dados h1 {
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.dados p {
+  color: black;
+  margin-top: 20px;
+  font-weight: bolder;
+}
+
+.dados input {
+  border-radius: 5px;
+  width: 250px;
+  height: 20px;
+  border-style: none;
+}
+
+.dados button {
+  display: flex;
+  border-style: none;
+  margin-top: 30px;
+  margin-left: 100px;
+  cursor: pointer;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+.dados button img {
+  width: 40px;
+  background-color: transparent;
+}
+
+.container img {
+  overflow-x: auto;
+  width: 1000px;
+}
+
+.btn{
+  display: flex !important;
+  justify-content: center !important;
+  margin-left: 0 !important;
+}
+
+.button {
+  background-color: #f4511e !important;
+  border: none;
+  color: white;
+  margin-left: 0 !important;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1
+}

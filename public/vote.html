@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-vote">
+        <div class="box-vote">Tomb Raider</div>
+        <div class="box-vote">Rise of the Tomb Raider</div>
+        <div class="box-vote">Shadow of the Tomb Raider</div>
+
+        de qual você mais gostou?
+        
+        <select name="" id="slc_voto">
+            
+        </select>
+        <button onclick="cadastrar_voto()">Votar</button>
+        <div id="metrica"></div>
+    </div>
+    
+</body>
+</html>
+<script>
+   
+    mostrar_game()
+    function mostrar_game(){
+        fetch("/usuarios/mostrar_game", {
+            method: "GET", 
+            headers: {
+                "Content-Type":"application/json"
+            }
+        })
+        .then(function (response){
+            if(response.ok){
+                response.json().then(function (resposta){
+                    listar_select(resposta)
+                })
+            }
+            else{
+                console.log("ERRO")
+            }
+        })
+        .catch(function (error){
+            console.error(`Erro na obtenção dos dados. Erro: ${error.message}`)
+        })
+    }
+
+    function listar_select(dados){
+
+        for(var i = 0; i < dados.length; i++){
+            var atual = dados[i]
+            slc_voto.innerHTML += `<option value="${atual.idGame}">${atual.nomeGame}</option>`
+        }
+    }
+
+    function cadastrar_voto(){
+
+        var voto = slc_voto.value
+        var id = sessionStorage.ID_USUARIO
+        fetch("/usuarios/cadastrar_voto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                votoServer: voto,
+                idServer: id
+            })
+        })
+        .then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+               console.log(resposta)
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           
+        });
+    }
+</script>

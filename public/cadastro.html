@@ -12,7 +12,14 @@
 </head>
 
 <body>
-   
+    <div class="navbar">
+
+        <div>
+            <a href="index.html"><img src="./assets/img/logo tr menu.png" alt=""></a>
+        </div>
+
+        
+    </div>
 
     <div class="banner">
         <video style="position: fixed; z-index: -1; width: 100%; top: 0; left: 0" class="background_video" muted
@@ -26,17 +33,23 @@
         <div class="cadastro">
             <div class="dados">
                 <h1>Cadastre-se!</h1>
-                <p> Username:</p> <input id="user_input" type="text"><br>
-                <p> E-mail:</p><input id="email_input" type="text"><br>
-                <p> Senha:</p> <input id="senha_input" type="password"><br>
-                <p> Confirmação de senha:</p> <input id="confirmacao_senha_input" type="password"><br>
+                <p> Username:</p> <input id="user_input" type="text" class="input"><br>
+                <p> E-mail:</p><input id="email_input" type="text" class="input"><br>
+                <p> Senha:</p> <input id="senha_input" type="password" class="input"><br>
+                <p> Confirmação de senha:</p> <input class="input" id="confirmacao_senha_input" type="password"><br>
                 <div class="alerta_erro">
                     <div class="card_erro" id="cardErro">
                         <span id="mensagem_erro"></span>
                     </div>
                 </div><br>
-                <button onclick="cadastrar()">Cadastrar</button>
-                
+                <div class="btn">
+                    <button class="button" onclick="cadastrar()">Cadastrar</button>
+                    
+                </div>
+                <div class="btn" style="margin-bottom: 5%;">
+
+                    <a href="login.html"style="text-decoration: none;"><span style="text-decoration: none; color: rgb(87, 87, 87);">Login</span></a>
+                </div>
                
             </div>
            

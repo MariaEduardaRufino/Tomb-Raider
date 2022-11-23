@@ -59,72 +59,11 @@
     </div>
     <div style="justify-items: center;display: flex;justify-content: center;margin-bottom: 30px;" class="vote">
         <div style="display: flex;justify-content: center;flex-direction: column;
-            background-color: beige;align-items: center;padding: 22px;border: solid;
+            background-color: beige;align-items: center;padding: 22px;
             border-radius: 20px;">
             <h2 style="margin-bottom: 10%;">Qual o seu jogo favorito da franquia?</h2>
-            <button class="button" id="myBtn" style="vertical-align:middle"><span> VENHA VOTAR!!</span></button>
+            <button class="button" id="myBtn" style="vertical-align:middle"><a href="vote.html"><span> VENHA VOTAR!!</span></a></button>
         </div>
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2 style="display: flex;justify-content: center;flex-direction: column;align-items: center;">Para
-                        Votar você precisa estar logado</h2>
-                </div>
-                <div class="modal-body"
-                    style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
-                    <a href="cadastro.html" id="test" style="text-decoration: none;">
-                        <p>CADASTRAR</p>
-                    </a>
-                    <a href="login.html" id="test2" style="text-decoration: none;">
-                        <p>Logar</p>
-                    </a>
-                </div>
-                <div class="modal-footer"style="padding: 10px;">
-
-                </div>
-            </div>
-
-        </div>
-
-        <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            var btntest = document.getElementById("test");
-
-            var btntest2 = document.getElementById("test2");
-            // When the user clicks the button, open the modal 
-            btn.onclick = function () {
-                modal.style.display = "block";
-            }
-
-            btntest.onclick = function () {
-                modal.style.display = "none";
-            }
-            btntest2.onclick = function () {
-                modal.style.display = "none";
-            }
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
     </div>
 
     <div class="lancamento">

@@ -31,8 +31,22 @@ function cadastrar(username, email, senha) {
     return database.executar(instrucao);
 }
 
+function mostrar_game(){
+    var instrucao = `select * from game;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function cadastrar_voto(voto, id){
+    var instrucao = `INSERT INTO voto VALUES (null, ${id},${voto});`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cadastrar_voto,
+    mostrar_game
 };
