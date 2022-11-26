@@ -28,4 +28,9 @@ router.post("/cadastrar_voto", function (req, res){
     usuarioController.cadastrar_voto(req, res)
 })
 
+router.get("/voto", function (req,res){
+    console.log("ei");
+    usuarioController.mostrar_voto(req,res)
+})
+
 module.exports = router;

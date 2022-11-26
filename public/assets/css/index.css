@@ -7,8 +7,8 @@
 }
 
 .body {
-    overflow-x: hidden;
     margin: 0;
+    padding: 0;
 }
 
 /* fim geral */
@@ -127,6 +127,7 @@
     height: 600px;
     overflow-x: auto;
     font-display: flex;
+    margin-top: 100px;
 }
 
 .gallery{
@@ -203,7 +204,7 @@
     color: #FFFFFF;
     text-align: center;
     font-size: 28px;
-    padding: 20px;
+    padding: 0px;
     width: 200px;
     transition: all 0.5s;
     cursor: pointer;
@@ -306,6 +307,71 @@
     color: white;
   }
 
+  .aboutContainer{
+    background-color: #000;
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+  
+  }
+  .aboutContainer img{
+    position: relative;
+    bottom: 5rem;
+    width: 2000px;
+    height: 660px;
+    object-fit: cover;
+    object-position: 0 1rem;
+  }
+  .aboutContainer span{
+    margin-right: 100px;
+  }
+
+  .LaraAbout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: white;
+    height: 500px;
+    margin-top: 300px;
+  }
+  .LaraAbout img{
+    position: relative;
+    bottom: 5rem;
+    width: 2000px;
+    height: 660px;
+    object-fit: cover;
+    object-position: 0 1rem;
+
+  }
+  .LaraAbout span{
+    margin-left: 100px;
+  }
+  .vote{
+    margin-top: 100px;
+    background-color: #000;
+  }
+  .vote button{
+    width: 300px;
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .box-vote{
+    width: 40%;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
   
   /* Add Animation */
   @-webkit-keyframes slideIn {

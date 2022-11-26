@@ -43,10 +43,19 @@ function cadastrar_voto(voto, id){
     return database.executar(instrucao);
 }
 
+function mostrar_voto(){
+    var instrucao = `select * from voto;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     cadastrar_voto,
-    mostrar_game
+    mostrar_game,
+    mostrar_voto,
 };

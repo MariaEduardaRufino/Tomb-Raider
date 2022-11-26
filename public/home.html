@@ -38,33 +38,47 @@
     <div class="logo">
         <img src="./assets/img/tomb raider logo white.png" alt="">
     </div>
+    <div class="aboutContainer">
+
+        <img src="./assets/img/laraBow.png" alt="">
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae sapiente ab harum impedit laudantium ea
+            consequuntur nesciunt! Quas suscipit temporibus praesentium. Reprehenderit soluta cupiditate beatae quasi,
+            eius provident eaque voluptate?</span>
+
+            <div class="vote">
+                <div class="box-vote">
+                    <button class="button" id="myBtn" style="vertical-align:middle"><a href="vote.html"><span> VENHA
+                                VOTAR!!</span></a></button>
+                </div>
+            </div>
+
+
+
+    </div>
 
     <div class="carrossel">
-    <div class="container">
-        <button class="arrow-left control" aria-label="previous image">←</button>
+        <div class="container">
+            <button class="arrow-left control" aria-label="previous image">←</button>
 
-        <button class="arrow-right control" aria-label="next image">→</button>
+            <button class="arrow-right control" aria-label="next image">→</button>
 
 
-        <div class="gallery-wrapper">
-            <div class="gallery">
-                <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-14.jpg" alt="" class="item current-item">
-                <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-15.jpg" alt=""
-                    class="item">
-                <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-16.jpg" alt="" class="item">
-                <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-3.jpg" alt="" class="item">
+            <div class="gallery-wrapper">
+                <div class="gallery">
+                    <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-14.jpg" alt=""
+                        class="item current-item">
+                    <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-15.jpg" alt="" class="item">
+                    <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-16.jpg" alt="" class="item">
+                    <img src="https://www.crystald.com/wp-content/uploads/2021/07/temp-3.jpg" alt="" class="item">
+                </div>
             </div>
         </div>
     </div>
+    <div class="LaraAbout">
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae reprehenderit consectetur dolorum laudantium harum quibusdam repellendus nulla ea unde repellat velit porro placeat temporibus numquam facere, alias fuga quia!</span>
+        <img src="./assets/img/LaraCroftTransparente.png" alt="">
     </div>
-    <div style="justify-items: center;display: flex;justify-content: center;margin-bottom: 30px;" class="vote">
-        <div style="display: flex;justify-content: center;flex-direction: column;
-            background-color: beige;align-items: center;padding: 22px;
-            border-radius: 20px;">
-            <h2 style="margin-bottom: 10%;">Qual o seu jogo favorito da franquia?</h2>
-            <button class="button" id="myBtn" style="vertical-align:middle"><a href="vote.html"><span> VENHA VOTAR!!</span></a></button>
-        </div>
-    </div>
+   
 
     <div class="lancamento">
         <h1>Próximo possível lançamento da franquia</h1>
@@ -116,12 +130,18 @@
     });
     ScrollReveal().reveal('.container', {
         duration: 3000,
-        delay:3000,
         distance: '200px'
     });
     ScrollReveal().reveal('.vote', {
         duration: 3000,
-        delay:2000,
+        distance: '100px'
+    });
+    ScrollReveal().reveal('.LaraAbout', {
+        duration: 3000,
+        distance: '400px'
+    });
+    ScrollReveal().reveal('.aboutContainer', {
+        duration: 3000,
         distance: '200px'
     });
 </script>
