@@ -65,7 +65,10 @@
 
 </html>
 <script>
-
+    var idUser = sessionStorage.ID_USUARIO
+    var voto = []
+    
+    
     var verifyVoto = false
 
     mostrar_game()
@@ -100,7 +103,7 @@
         } else {
             for (var i = 0; i < dados.length; i++) {
                 var atual = dados[i]
-                slc_voto.innerHTML += `<option value="${atual.idGame}" disable>${atual.nomeGame}</option>`
+                slc_voto.innerHTML += `<option value="${atual.idGame}" disabled>${atual.nomeGame}</option>`
             }
         }
     }
@@ -143,7 +146,8 @@
             });
     }
     function blockVoto() {
-        div_btnvotar.innerHTML = `<button onclick="cadastrar_voto()" disabled>Votar</button>`
+        div_btnvotar.innerHTML = `<button style="background-color : rgb(80 80 80);" onclick="cadastrar_voto()" disabled>Votar</button><br>
+        OBRIGADO POR VOTAR!!!`
 
 
     }
@@ -160,6 +164,9 @@
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(resposta);
+                        voto = resposta
+                        verifyOneVoto()
+                        console.log(voto);
                         listar_voto(resposta)
                     })
                 }
@@ -196,6 +203,18 @@
         voteTRShadow.innerHTML = `${countShadow}`;
         voteTRRise.innerHTML = `${countRise}`
        
-    }
+    };
 
+    verifyOneVoto()
+    function verifyOneVoto(){
+        console.log(idUser);
+        console.log(voto);
+        var searchVoto = voto.find(resp => resp.fkUser == idUser)
+        console.log(searchVoto);
+        if(searchVoto != null){
+            verifyVoto = true
+            blockVoto()
+        }
+        // console.log(searchVoto);
+    }
 </script>

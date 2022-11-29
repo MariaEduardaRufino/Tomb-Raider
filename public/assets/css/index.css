@@ -297,7 +297,7 @@
   
   .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #f78223;
     color: white;
   }
   
@@ -305,8 +305,24 @@
   
   .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #f78223;
     color: white;
+  }
+
+  .test{
+    transition: 0.6s ease-in-out;
+  }
+  .test:hover{
+    background-color: #f78223;
+    
+  }
+
+  .test2{
+    transition: 0.3s ease-in-out;
+  }
+  .test2:hover{
+    background-color: #f78223;
+    
   }
 
   .aboutContainer{
