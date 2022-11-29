@@ -100,20 +100,87 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    gap: 1rem;
+    border-radius: 50px;
+}
+
+.container-vote img{
+    width: max-content;
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .box-vote{
-    border: 1px solid red;
+    background-color: blue;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
 
 }
+
+.box-vote:hover .vote{
+    opacity: 1;
+    height: 450px;
+}
+
+.vote{
+    user-select: none;
+    opacity: 0;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.356);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 0;
+    border-radius: 10px;
+    transition: .5s ease;
+}
+
+.vote span{
+    margin-bottom: -5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: .8rem;
+}
+
+.vote h1{
+    font-size: 6rem;
+}
+
+#div_btnvotar button{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 5px;
+    background-color: rgb(146, 40, 40);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+
 .container-conteudo{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.container-conteudo #slc_voto{
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: rgb(185, 185, 185);
 }

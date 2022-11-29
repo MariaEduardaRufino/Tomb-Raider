@@ -22,9 +22,27 @@
     </div>
     <div class="contaner-geral">
         <div class="container-vote">
-            <div class="box-vote"><img src="./assets/img/tr.jpg" alt=""></div>
-            <div class="box-vote"><img src="./assets/img/tr.jpg" alt=""></div>
-            <div class="box-vote"><img src="./assets/img/tr.jpg" alt=""></div>
+            <div class="box-vote">
+                <img src="https://images6.alphacoders.com/423/thumb-1920-423181.jpg" alt="">
+                <div class="vote">
+                    <span>Votos Tomb Raider:</span>
+                    <h1 id="voteTR"></h1>
+                </div>
+            </div>
+            <div class="box-vote">
+                <img src="https://assets.reedpopcdn.com/digitalfoundry-2016-rise-of-the-tomb-raider-pc-face-off-1453834812874.jpg/BROK/resize/1200x1200%3E/format/jpg/quality/70/digitalfoundry-2016-rise-of-the-tomb-raider-pc-face-off-1453834812874.jpg" alt="">
+                <div class="vote">
+                    <span>Votos Rise of Tomb Raider:</span>
+                    <h1 id="voteTRRise"></h1>
+                </div>
+            </div>
+            <div class="box-vote">
+                <img src="https://preview.redd.it/hmwmn1e0oo871.png?width=640&crop=smart&auto=webp&s=f149ec2daa8c83741ff359e7494daaa9e83fe34b" alt="">
+                <div class="vote">
+                    <span>Votos Shadow of Tomb Raider:</span>
+                    <h1 id="voteTRShadow"></h1>
+                </div>
+            </div>
 
         </div>
         <div class="container-conteudo">
@@ -37,7 +55,7 @@
 
                 <button onclick="cadastrar_voto()">Votar</button>
             </div>
-           <br><br>
+            <br><br>
             <div id="metrica"></div>
 
         </div>
@@ -48,7 +66,7 @@
 </html>
 <script>
 
-var verifyVoto = false
+    var verifyVoto = false
 
     mostrar_game()
     function mostrar_game() {
@@ -74,20 +92,20 @@ var verifyVoto = false
     }
 
     function listar_select(dados) {
-        if(!verifyVoto){
-        for (var i = 0; i < dados.length; i++) {
-            var atual = dados[i]
-            slc_voto.innerHTML += `<option value="${atual.idGame}">${atual.nomeGame}</option>`
-        }
-    }else{
-        for (var i = 0; i < dados.length; i++) {
-            var atual = dados[i]
-            slc_voto.innerHTML += `<option value="${atual.idGame}" disable>${atual.nomeGame}</option>`
-        }
+        if (!verifyVoto) {
+            for (var i = 0; i < dados.length; i++) {
+                var atual = dados[i]
+                slc_voto.innerHTML += `<option value="${atual.idGame}">${atual.nomeGame}</option>`
+            }
+        } else {
+            for (var i = 0; i < dados.length; i++) {
+                var atual = dados[i]
+                slc_voto.innerHTML += `<option value="${atual.idGame}" disable>${atual.nomeGame}</option>`
+            }
         }
     }
     // var votoList = []
-    
+
     function cadastrar_voto() {
         var voto = slc_voto.value
         // votoList.push(voto)
@@ -113,6 +131,8 @@ var verifyVoto = false
                     blockVoto()
 
                     console.log(resposta)
+                    alert('Voto realizado com sucesso')
+                    window.location = "vote.html"
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
@@ -122,8 +142,8 @@ var verifyVoto = false
 
             });
     }
-    function blockVoto(){
-       div_btnvotar.innerHTML = `<button onclick="cadastrar_voto()" disabled>Votar</button>`
+    function blockVoto() {
+        div_btnvotar.innerHTML = `<button onclick="cadastrar_voto()" disabled>Votar</button>`
 
 
     }
@@ -160,21 +180,22 @@ var verifyVoto = false
             var voto = dados[i]
             var game = ""
             if (voto.fkgame == 1) {
-                countRise ++
+                countRise++
                 game = "Rise of the Tomb Raider"
             } else if (voto.fkgame == 2) {
-                countShadow ++
+                countShadow++
                 game = "Shadown of the Tomb Raider"
             } else if (voto.fkgame == 3) {
-                countTomb ++
+                countTomb++
                 game = "Tomb Raider"
             }
-            
+
         }
-        metrica.innerHTML += `Votos: Rise of the Tomb Raider ${countRise} <br>
-        Votos: Shadow of the Tomb Raider ${countShadow}<br>
-        Votos: Tomb Raider ${countTomb}<br>
-        Total de votos${dados.length}`
+
+        voteTR.innerHTML =`${countTomb}`;
+        voteTRShadow.innerHTML = `${countShadow}`;
+        voteTRRise.innerHTML = `${countRise}`
+       
     }
 
 </script>

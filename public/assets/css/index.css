@@ -199,7 +199,7 @@
   .button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #133f06;
+    background-color: #a5170d;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -243,7 +243,7 @@
   .button:hover{
     padding: 19px;
     margin: 4px;
-    background-color: #5cb85c;
+    background-color: #db624d;
     border-bottom: solid #000;
     border-left:solid #000;
   }
