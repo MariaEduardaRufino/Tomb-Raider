@@ -73,6 +73,7 @@
 
     var verifyVoto = false
 
+    // o mostrar game é chamado logo no loading da página, pois preciso desses dados logo quando carregar
     mostrar_game()
     function mostrar_game() {
         fetch("/usuarios/mostrar_game", {
@@ -140,12 +141,17 @@
     }
 
     function blockVoto() {
+
+        // o block voto está sendo chamado na funcçao abaixo verifyOneVoto
         div_btnvotar.innerHTML = `<button style="background-color : rgb(80 80 80);" onclick="cadastrar_voto()" disabled>Votar</button><br>
         OBRIGADO POR VOTAR!!!`
     }
 
+
     mostrar_voto()
     function mostrar_voto() {
+        // o mostrar voto faz uma requisição para o end point inserido que é usuarios -> voto
+        // ele recebe os valores impostos no banco de dados
         fetch("/usuarios/voto", {
             method: "GET",
             headers: {
@@ -155,6 +161,7 @@
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
+                        // se o end point deu certo então a response recebe um ok e podemos prosseguir
                         voto = resposta
                         verifyOneVoto()
                         console.log(voto);
@@ -199,6 +206,10 @@
 
     verifyOneVoto()
     function verifyOneVoto(){
+
+        // o .find vai percorrer todos os atributos do voto para encontrar os parametros que foram inseridos, no caso se o fkUser é igual ao idUser, ele esta verificando se aquele id já votou
+        // se o usuario ja votou ele chama a function blockvoto, onde essa função faz basicamente o botão ficar disabled, ou seja, impossível de se utilizar de novo
+
         var searchVoto = voto.find(resp => resp.fkUser == idUser)
         if(searchVoto != null){
             verifyVoto = true

@@ -131,22 +131,27 @@
 
 
     <script>
-        // Get the modal
+        // pegando a modal
         var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
+        // get para o button que abre a modal "Vamos votar"
         var btn = document.getElementById("myBtn");
 
-        // Get the <span> element that closes the modal
+            // pegando a span que fecha a modal o "x"
         var span = document.getElementsByClassName("close")[0];
 
+        //pegando o btn test "Cadastrar"
         var btntest = document.getElementById("test");
 
+         //pegando o btn test "Logar"
         var btntest2 = document.getElementById("test2");
-        // When the user clicks the button, open the modal 
+ 
+        // quando o usuario clicar nesse botão abre a modal
         btn.onclick = function () {
             modal.style.display = "block";
         }
+
+        // fecha a modal e abre suas respectivas paginas login ou cadastro
 
         btntest.onclick = function () {
             modal.style.display = "none";
@@ -154,12 +159,13 @@
         btntest2.onclick = function () {
             modal.style.display = "none";
         }
-        // When the user clicks on <span> (x), close the modal
+        // quando o usuario clicar no "x" fecha a modal
         span.onclick = function () {
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
+
+        // quando o usuario clicar para fora da modal ele fecha
         window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -195,10 +201,10 @@
                     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
                         + minutes + "m " + seconds + "s ";
 
-                    // Se a conta terminou exibir
+                    // Se a conta terminou, exibir
                     if (distance < 0) {
                         clearInterval(x);
-                        document.getElementById("demo").innerHTML = "EXPIRED";
+                        document.getElementById("demo").innerHTML = "EXPIRADO";
                     }
                 }, 1000);
             </script>
@@ -244,16 +250,21 @@
         control.addEventListener('click', () => {
             const isLeft = control.classList.contains("arrow-left");
 
+
+            // se o botão for o da esquerda o current item do array de itens do carrosel diminui em 1
             if (isLeft) {
                 currentItem -= 1;
-            } else {
-                currentItem += 1;
-            }
+             } else { 
+                 currentItem += 1;
+                }
+                // caso contrario ele incrementa em 1 pois é o botçao da direita
 
+
+                // se o item atual for maior que a quantidade de items do array o current item vai ser igual a 0, ou seja ele volta para o item na posição 0(a primeira imagem)
             if (currentItem >= maxItems) {
                 currentItem = 0
             }
-
+            // se o item autal for menor do que 0, o item atual vai ser igual a quantidade de posições do array -1, ou seja a ultima imagem que esta na posição 4
             if (currentItem < 0) {
                 currentItem = maxItems - 1;
             }
