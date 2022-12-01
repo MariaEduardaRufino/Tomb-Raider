@@ -65,10 +65,12 @@
 
 </html>
 <script>
+
     var idUser = sessionStorage.ID_USUARIO
+
+    // é um array any, ou seja, pode ser guardado qualquer qualquer coisa
     var voto = []
-    
-    
+
     var verifyVoto = false
 
     mostrar_game()
@@ -96,23 +98,20 @@
 
     function listar_select(dados) {
         if (!verifyVoto) {
+
+            // percorrendo array chamado dados
             for (var i = 0; i < dados.length; i++) {
                 var atual = dados[i]
                 slc_voto.innerHTML += `<option value="${atual.idGame}">${atual.nomeGame}</option>`
-            }
-        } else {
-            for (var i = 0; i < dados.length; i++) {
-                var atual = dados[i]
-                slc_voto.innerHTML += `<option value="${atual.idGame}" disabled>${atual.nomeGame}</option>`
             }
         }
     }
     // var votoList = []
 
     function cadastrar_voto() {
-        var voto = slc_voto.value
+        var votoUser = slc_voto.value
         // votoList.push(voto)
-        var id = sessionStorage.ID_USUARIO
+   
         fetch("/usuarios/cadastrar_voto", {
             method: "POST",
             headers: {
@@ -121,19 +120,14 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                votoServer: voto,
-                idServer: id
+                votoServer: votoUser,
+                idServer: idUser
             })
         })
             .then(function (resposta) {
-
-                console.log("resposta: ", resposta);
-
                 if (resposta.ok) {
                     verifyVoto = true
                     blockVoto()
-
-                    console.log(resposta)
                     alert('Voto realizado com sucesso')
                     window.location = "vote.html"
                 } else {
@@ -142,14 +136,12 @@
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-
             });
     }
+
     function blockVoto() {
         div_btnvotar.innerHTML = `<button style="background-color : rgb(80 80 80);" onclick="cadastrar_voto()" disabled>Votar</button><br>
         OBRIGADO POR VOTAR!!!`
-
-
     }
 
     mostrar_voto()
@@ -163,7 +155,6 @@
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
-                        console.log(resposta);
                         voto = resposta
                         verifyOneVoto()
                         console.log(voto);
@@ -171,13 +162,14 @@
                     })
                 }
                 else {
-                    console.log("ERRO345253")
+                    console.log("ERRO NO ENDPOINT")
                 }
             })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados. Erro: ${error.message}`)
             })
     }
+
     function listar_voto(dados) {
         var countRise = 0
         var countShadow = 0
@@ -207,10 +199,7 @@
 
     verifyOneVoto()
     function verifyOneVoto(){
-        console.log(idUser);
-        console.log(voto);
         var searchVoto = voto.find(resp => resp.fkUser == idUser)
-        console.log(searchVoto);
         if(searchVoto != null){
             verifyVoto = true
             blockVoto()

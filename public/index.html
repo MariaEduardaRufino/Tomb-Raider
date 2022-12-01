@@ -22,10 +22,10 @@
 
 
         <div class="menu">
-            <a href="">Sobre o jogo <div class="bar"></div>
+            <a href="#sobreojogo">Sobre o jogo <div class="bar"></div>
             </a>
-            <a href="">Galeria <div class="bar"></div></a>
-            <a href="">Lara Croft <div class="bar"></div></a>
+            <a href="#galeria">Galeria <div class="bar"></div></a>
+            <a href="#sobrelara">Lara Croft <div class="bar"></div></a>
             <a href="login.html"><i class="fa-sharp fa-solid fa-right-to-bracket" id="login-icon"></i></a>
         </div>
     </div>
@@ -40,7 +40,7 @@
         <img src="./assets/img/tomb raider logo white.png" alt="">
     </div>
 
-    <div class="aboutContainer">
+    <div class="aboutContainer" id="sobreojogo">
 
         <img src="./assets/img/laraBow.png" alt="">
         <span style="padding: 0px; margin: 0px; margin-top: 10px;">Tomb Raider é uma série de jogos eletrônicos,
@@ -65,7 +65,6 @@
 
     </div>
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
@@ -93,7 +92,7 @@
 
     </div>
 
-    <div class="carrossel">
+    <div class="carrossel" id="galeria">
         <div class="container">
             <button class="arrow-left control" aria-label="previous image">←</button>
 
@@ -111,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div class="LaraAbout">
+    <div class="LaraAbout" id="sobrelara">
         <span>Quando tinha 9 anos de idade, Lara Croft sobreviveu a um acidente de avião na Cordilheira do Himalaia,
             onde a mãe dela foi dada como desaparecida. Depois de resistir a uma caminhada de dez dias até Katmandu,
             Lara passou o resto de sua infância sendo criada pelo seu pai, o arqueólogo Richard Croft, o Conde de
@@ -229,12 +228,16 @@
     });
 </script>
 <script>
+    // Array de controles, icones de setinhas.
     const controls = document.querySelectorAll('.control');
 
+    // currentItem é apenas uma contagem para eu colocar de parametro no meu array ex. dados[CURRENT_ITEM].
     let currentItem = 0;
 
+    // Array de img, com a classe "item"
     const items = document.querySelectorAll('.item');
 
+    // numero max da Array items
     const maxItems = items.length;
 
     controls.forEach(control => {
@@ -257,12 +260,14 @@
 
             items.forEach(item => item.classList.remove('current-item'));
 
+            // JSON ----- pegando a minha imagem com a currentItem (Agora atualizada com o numero que eu selecionei,
+            // de acordo com a minha logica do primeiro forEach.) e centralizando ela na minha div.
             items[currentItem].scrollIntoView({
                 inline: "center",
                 behavior: "smooth",
                 block: 'nearest'
             });
-
+            // add a class current-item a imagem com a index de currentItem.
             items[currentItem].classList.add("current-item");
         });
     })
